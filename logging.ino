@@ -14,6 +14,7 @@ void setup()
     client.println("Content-Length: ");
     client.println(strlen(body)+14);
     client.println();
+    client.println(body);
   }
   else
   {
