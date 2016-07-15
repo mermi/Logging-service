@@ -1,6 +1,6 @@
 char body[]="v=1&t=event&tid=UA-77033033-1&cid=9eccb690-93aa-4513-835a-9a4f0f0e2a71&ec=ManelCategory&ea=action&el=label&ev=1&an=iot_app&av=1.0&ul=en-us&cd1=linux&cd2=1.2&cd3=RPi%2F2&cd4=arm&cd5=rust%20test&cd6=20160320123456&cd7=2016-05-25%2022:36:57";
 #include <string.h>
-#define DOMAIN "analytics.google.com"
+#define DOMAIN "google-analytics.com"
 TCPClient client;
 bool connecte = false;
 void setup()
@@ -15,8 +15,7 @@ void setup()
             Serial.println("connexion ok.");
             connecte = true;
             client.println("POST /collect HTTP/1.1");
-            client.println("Host: analytics.google.com");
-            client.println("");
+            client.println("Host: " DOMAIN);
             client.print("Content-Length: ");
             client.println(strlen(body));
             client.println("");
